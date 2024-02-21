@@ -12,6 +12,9 @@
 		7A1E990C2B867C8D00B88FEC /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1E990B2B867C8D00B88FEC /* Item.swift */; };
 		7A1E990E2B867C8F00B88FEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A1E990D2B867C8F00B88FEC /* Assets.xcassets */; };
 		7A1E99112B867C8F00B88FEC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A1E99102B867C8F00B88FEC /* Preview Assets.xcassets */; };
+		7A1E99192B867CE900B88FEC /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1E99182B867CE900B88FEC /* Todo.swift */; };
+		7A1E991D2B8682B400B88FEC /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1E991C2B8682B400B88FEC /* Home.swift */; };
+		7A1E991F2B86870100B88FEC /* CompletedTodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1E991E2B86870100B88FEC /* CompletedTodoList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +24,9 @@
 		7A1E990B2B867C8D00B88FEC /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		7A1E990D2B867C8F00B88FEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A1E99102B867C8F00B88FEC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7A1E99182B867CE900B88FEC /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
+		7A1E991C2B8682B400B88FEC /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		7A1E991E2B86870100B88FEC /* CompletedTodoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedTodoList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +59,8 @@
 		7A1E99062B867C8D00B88FEC /* MinimalTodo */ = {
 			isa = PBXGroup;
 			children = (
+				7A1E99172B867C9F00B88FEC /* Model */,
+				7A1E991B2B8682A500B88FEC /* View */,
 				7A1E99072B867C8D00B88FEC /* MinimalTodoApp.swift */,
 				7A1E99092B867C8D00B88FEC /* ContentView.swift */,
 				7A1E990B2B867C8D00B88FEC /* Item.swift */,
@@ -68,6 +76,23 @@
 				7A1E99102B867C8F00B88FEC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7A1E99172B867C9F00B88FEC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7A1E99182B867CE900B88FEC /* Todo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7A1E991B2B8682A500B88FEC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7A1E991C2B8682B400B88FEC /* Home.swift */,
+				7A1E991E2B86870100B88FEC /* CompletedTodoList.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,7 +167,10 @@
 			files = (
 				7A1E990A2B867C8D00B88FEC /* ContentView.swift in Sources */,
 				7A1E990C2B867C8D00B88FEC /* Item.swift in Sources */,
+				7A1E991D2B8682B400B88FEC /* Home.swift in Sources */,
 				7A1E99082B867C8D00B88FEC /* MinimalTodoApp.swift in Sources */,
+				7A1E99192B867CE900B88FEC /* Todo.swift in Sources */,
+				7A1E991F2B86870100B88FEC /* CompletedTodoList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,13 +6,38 @@
 //
 
 import SwiftUI
+import SwiftData
 
-struct Todo: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+@Model
+class Todo {
+//    To update the to do state of the widgets
+    private(set) var taskID: String = UUID().uuidString
+    var task: String
+    var isCompleted: Bool = false
+    var priority: Priority = Priority.normal
+    var lastUpdated: Date = Date.now
+    
+    init(taskID: String, task: String, isCompleted: Bool, priority: Priority) {
+        self.taskID = taskID
+        self.task = task
+        self.isCompleted = isCompleted
+        self.priority = priority
     }
 }
 
-#Preview {
-    Todo()
+enum Priority: String, Codable, CaseIterable {
+    case normal = "Normal"
+    case medium = "Medium"
+    case high = "High"
+    
+    var color: Color {
+        switch self {
+        case .normal:
+            return .green
+        case .medium:
+            return .yellow
+        case .high:
+            return .red
+        }
+    }
 }
