@@ -12,6 +12,7 @@ struct Home: View {
     //Active Todo's
     @Query(filter: #Predicate<Todo> { !$0.isCompleted}, sort: [SortDescriptor(\Todo.lastUpdated, order: .reverse)], animation: .snappy) private var activeList: [Todo]
     @Environment(\.modelContext) private var context
+    @State private var showAll: Bool = false
     
     var body: some View {
         List {
@@ -20,7 +21,7 @@ struct Home: View {
                     TodoRowView(todo: $0)
                 }
             }
-            CompletedTodoList()
+            CompletedTodoList(showAll: $showAll)
         }.toolbar {
             ToolbarItem(placement: .bottomBar) {
                 Button(action: {

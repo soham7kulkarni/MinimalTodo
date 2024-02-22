@@ -9,22 +9,23 @@ import SwiftUI
 import SwiftData
 
 struct CompletedTodoList: View {
+    @Binding var showAll: Bool
     @Query private var completedList: [Todo]
-    init(){
+    init(showAll: Binding<Bool>){
         let predicate  = #Predicate<Todo>  {$0.isCompleted}
         let sort = [SortDescriptor(\Todo.lastUpdated, order: .reverse)]
         
         var descriptor = FetchDescriptor(predicate: predicate, sortBy: sort)
         
-        if !showAll {
+        if !showAll.wrappedValue {
             descriptor.fetchLimit = 15
         }
         
         _completedList = Query(descriptor, animation: .snappy)
+        _showAll = showAll
     }
     
-    @State private var showAll: Bool = false
-    var body: some View {
+        var body: some View {
         Section{
             ForEach(completedList) {
                 TodoRowView(todo: $0)
