@@ -26,7 +26,9 @@ struct CompletedTodoList: View {
     @State private var showAll: Bool = false
     var body: some View {
         Section{
-            
+            ForEach(completedList) {
+                TodoRowView(todo: $0)
+            }
         } header: {
             HStack{
                 Text ("Completed")

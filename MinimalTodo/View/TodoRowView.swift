@@ -11,16 +11,19 @@ struct TodoRowView: View {
     @Bindable var todo: Todo
     @FocusState private var isActive: Bool
     @Environment (\.modelContext) private var context
+    @Environment (\.scenePhase) private var phase
     
     var body: some View {
         HStack(spacing: 0) {
             if !isActive && !todo.task.isEmpty {
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                Button(action: {
+                    todo.isCompleted.toggle()
+                }, label: {
                     Image(systemName: todo.isCompleted ? "checkmark.circle.fill": "circle")
                         .font(.title2)
                         .padding(3)
                         .contentShape(.rect)
-                        .foregroundStyle(todo.isCompleted ? .gray : .primary)
+                        .foregroundStyle(todo.isCompleted ? .gray : .accentColor)
                         .contentTransition(.symbolEffect(.replace))
                 })
             }
@@ -56,10 +59,22 @@ struct TodoRowView: View {
         .onAppear{
             isActive = todo.task.isEmpty
         }
+        .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+            Button("", systemImage: "trash") {
+                context.delete(todo)
+            }
+            .tint(.red)
+        }
         .onSubmit(of: .text) {
             if todo.task.isEmpty {
                 context.delete(todo)
             }
+        }
+        .onChange(of: phase) { oldValue, newValue in
+            if newValue != .active && todo.task.isEmpty {
+                context.delete(todo)
+            }
+            
         }
     }
 }
