@@ -18,6 +18,7 @@ struct TodoRowView: View {
             if !isActive && !todo.task.isEmpty {
                 Button(action: {
                     todo.isCompleted.toggle()
+                    todo.lastUpdated = .now
                 }, label: {
                     Image(systemName: todo.isCompleted ? "checkmark.circle.fill": "circle")
                         .font(.title2)

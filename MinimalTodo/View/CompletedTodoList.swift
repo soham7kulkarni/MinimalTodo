@@ -18,7 +18,7 @@ struct CompletedTodoList: View {
         var descriptor = FetchDescriptor(predicate: predicate, sortBy: sort)
         
         if !showAll.wrappedValue {
-            descriptor.fetchLimit = 15
+            descriptor.fetchLimit = 4
         }
         
         _completedList = Query(descriptor, animation: .snappy)
@@ -34,7 +34,7 @@ struct CompletedTodoList: View {
             HStack{
                 Text ("Completed")
                 Spacer(minLength: 0)
-                if showAll {
+                if showAll && !completedList.isEmpty {
                     Button("Show Recents"){
                         showAll = false
                     }
@@ -43,7 +43,7 @@ struct CompletedTodoList: View {
             .font(.caption)
             
         } footer: {
-            if completedList.count == 15 && !showAll {
+            if completedList.count == 4 && !showAll && !completedList.isEmpty {
                 HStack {
                     Text("Showing Recent 15 tasks")
                         .foregroundStyle(.gray)
